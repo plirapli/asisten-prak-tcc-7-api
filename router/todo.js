@@ -30,14 +30,14 @@ router.post("/", async (req, res) => {
     const { title, isi } = req.body;
 
     // kalau title-nya kosong atau gaada kolom title di request body
-    if (title == "" || title == null) {
+    if (!title) {
       const error = new Error("Judul gabole kosong");
       error.statusCode = 401;
       throw error;
     }
 
     // kalau isinya kosong atau gaada kolom isi di request body
-    if (isi == "" || isi == null) {
+    if (!isi) {
       const error = new Error("Isi gabole kosong");
       error.statusCode = 401;
       throw error;
