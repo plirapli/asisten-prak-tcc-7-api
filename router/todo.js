@@ -10,13 +10,14 @@ router.get("/", async (req, res) => {
     const command = "SELECT * FROM todo";
     const data = await connection.promise().query(command);
 
-    // Mengirimkan response
+    // Mengirimkan respons jika berhasil
     res.status(200).json({
       status: "Success",
       message: "Berhasil mengambil daftar todo",
       data: data[0],
     });
   } catch (error) {
+    // mengirimkan respons jika gagal
     res.status(error.statusCode || 500).json({
       status: "Error",
       message: error.message,
@@ -27,18 +28,13 @@ router.get("/", async (req, res) => {
 // [POST] Memasukkan daftar todo
 router.post("/", async (req, res) => {
   try {
+    // mengambil title dan isi dari request body
     const { title, isi } = req.body;
 
-    // kalau title-nya kosong atau gaada kolom title di request body
-    if (!title) {
-      const error = new Error("Judul gabole kosong");
-      error.statusCode = 401;
-      throw error;
-    }
-
-    // kalau isinya kosong atau gaada kolom isi di request body
-    if (!isi) {
-      const error = new Error("Isi gabole kosong");
+    // kalau title/isi kosong atau gaada kolom title/isi di request body
+    if (!title || !isi) {
+      const msg = `${!judul ? "Judul" : "Isi"} gabole kosong 😠`;
+      const error = new Error(msg);
       error.statusCode = 401;
       throw error;
     }
@@ -47,12 +43,13 @@ router.post("/", async (req, res) => {
     const command = "INSERT INTO todo (title, isi) VALUES (?, ?)";
     await connection.promise().query(command, [title, isi]);
 
-    // Mengirimkan response
+    // mengirimkan respons jika berhasil
     res.status(201).json({
       status: "Success",
       message: "Berhasil menambahkan todo",
     });
   } catch (error) {
+    // mengirimkan respons jika gagal
     res.status(error.statusCode || 500).json({
       status: "Error",
       message: error.message,
