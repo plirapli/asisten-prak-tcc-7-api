@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
 
     // kalau title/isi kosong atau gaada kolom title/isi di request body
     if (!title || !isi) {
-      const msg = `${!judul ? "Judul" : "Isi"} gabole kosong 😠`;
+      const msg = `${!title ? "Judul" : "Isi"} gabole kosong 😠`;
       const error = new Error(msg);
       error.statusCode = 401;
       throw error;
