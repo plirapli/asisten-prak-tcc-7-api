@@ -11,7 +11,7 @@
 
 ### Todo
 
-GET `/todo`
+GET `/todos`
 
 Response:
 
@@ -34,7 +34,7 @@ Status Code: 200
 
 ---
 
-POST `/todo`
+POST `/todos`
 
 Content-type: application/json
 

@@ -10,7 +10,7 @@ app.use(cors());
 // Buat ngubah request body yang berupa json ke dalam object
 app.use(express.json());
 
-app.use("/todo", todoRouter);
+app.use("/todos", todoRouter);
 
 // Menjalankan server di port 3001
 app.listen("3001", () => {
