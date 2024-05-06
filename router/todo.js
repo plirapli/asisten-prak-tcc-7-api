@@ -113,4 +113,35 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// [GET] Mengambil todo berdasarkan ID
+router.get("/:id", async (req, res) => {
+  try {
+    // mengambil id dari parameter
+    const { id } = req.params;
+
+    // Execute query ke database
+    const command = "SELECT * FROM todo WHERE id = ?";
+    const [[data]] = await connection.promise().query(command, [id]);
+
+    if (!data) {
+      const error = new Error("Todo tidak ditemukan.");
+      error.statusCode = 404;
+      throw error;
+    }
+
+    // Mengirimkan respons jika berhasil
+    res.status(200).json({
+      status: "Success",
+      message: "Berhasil mengambil daftar todo berdasarkan id " + id,
+      data: data,
+    });
+  } catch (error) {
+    // mengirimkan respons jika gagal
+    res.status(error.statusCode || 500).json({
+      status: "Error",
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;
