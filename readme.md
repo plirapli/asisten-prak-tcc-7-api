@@ -57,3 +57,44 @@ Status Code: 201
   "message": "Berhasil menambahkan todo",
 }
 ```
+
+---
+
+PUT `/todos/:id`
+
+Content-type: application/json
+
+Request Body:
+
+Status Code: 200
+
+```
+{
+  "title": "mengerjakan tugas",
+  "isi": "mengerjakan tugasnya novrido"
+}
+```
+
+Response:
+
+```
+{
+  "status": "Success",
+  "message": "Berhasil mengubah todo",
+}
+```
+
+---
+
+DELETE `/todos/:id`
+
+Response:
+
+Status Code: 204
+
+```
+{
+  "status": "Success",
+  "message": "Berhasil menghapus data di dalam todo",
+}
+```
