@@ -34,6 +34,26 @@ Status Code: 200
 
 ---
 
+GET `/todos/:id`
+
+Response:
+
+Status Code: 200
+
+```
+{
+  "status": "Success",
+  "message": "Berhasil mengambil daftar todo berdasarkan id',
+  "data": {
+    "id": 1,
+    "title": "Ini judul",
+    "isi": "Ini adalah isinya"
+  },
+}
+```
+
+---
+
 POST `/todos`
 
 Content-type: application/json
@@ -66,7 +86,7 @@ Content-type: application/json
 
 Request Body:
 
-Status Code: 200
+Status Code: 201
 
 ```
 {
@@ -90,7 +110,7 @@ DELETE `/todos/:id`
 
 Response:
 
-Status Code: 204
+Status Code: 201
 
 ```
 {
