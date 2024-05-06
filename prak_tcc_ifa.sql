@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `todo` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `isi` varchar(255) NOT NULL
+  `isi` TEXT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,8 +39,6 @@ CREATE TABLE `todo` (
 
 INSERT INTO `todo` (`id`, `title`, `isi`) VALUES
 (2, 'bimbingan', 'bimbingan kp'),
-(5, '', 'asdasdasdhsdfhdsfh'),
-(6, '', 'asdasdasdhsdfhdsfh');
 
 --
 -- Indexes for dumped tables
