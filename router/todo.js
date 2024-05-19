@@ -100,7 +100,7 @@ router.delete("/:id", async (req, res) => {
     await connection.promise().query(command, [id]);
 
     // mengirimkan respons jika berhasil
-    res.status(201).json({
+    res.status(200).json({
       status: "Success",
       message: "Berhasil menghapus data di dalam todo",
     });

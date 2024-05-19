@@ -86,8 +86,6 @@ Content-type: application/json
 
 Request Body:
 
-Status Code: 201
-
 ```
 {
   "title": "mengerjakan tugas",
@@ -96,6 +94,8 @@ Status Code: 201
 ```
 
 Response:
+
+Status Code: 201
 
 ```
 {
@@ -110,7 +110,7 @@ DELETE `/todos/:id`
 
 Response:
 
-Status Code: 201
+Status Code: 200
 
 ```
 {
